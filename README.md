@@ -11,6 +11,8 @@ level of resemblence to what is known about the navigation system in rodents.
 
 ## Assumptions and restrictions
 
+_Add some things here that reflect the literature_
+
 ## Methods
 We have an agent that has an _egocentric_ and an _allocentric_ reference frames that has to navigate in an 
 environment. The egocentric reference frame that provides information in reference to its own body 
