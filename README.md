@@ -11,11 +11,13 @@ level of resemblence to what is known about the navigation system in rodents.
 
 ## Assumptions and restrictions
 
-* Egocentric information * proprioceptive information (angular velocity, motion speed, etc). It is used to perform
+** Egocentric information ** proprioceptive information (angular velocity, motion speed, etc). It is used to perform
 path integration.
 
 
-* Allocentric information * GPS-like information (location in the environment). It is used as a map.
+** Allocentric information ** GPS-like information (location in the environment). It is used as a map.
+
+_ Add references and a literature review of models of spatial navigation _
 
 ## Methods
 We have an agent that has an _egocentric_ and an _allocentric_ reference frames that has to navigate in an 
