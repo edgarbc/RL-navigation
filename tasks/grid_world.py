@@ -116,6 +116,33 @@ class BasicGridWorld(AbstractTask):
 
         pyplot.imshow(rgb/255)
 
+class SensoryGridWorld(BasicGridWorld):
+    def get_current_state(self):
+        allo_state = self.current_state
+        ego_state = {}
+
+        i = allo_state.coordinates[0]
+        j = allo_state.coordinates[1]
+        for act in self.actions:
+            new_i = i + self.actions[act][0]
+            new_j = j + self.actions[act][1]
+            if new_i >= 0 and new_i < self.size and new_j >= 0 and new_j < self.size:
+                ego_state[act] = self.grid[new_i][new_j].type_name
+
+        return {'allocentric': allo_state, 'sensory': ego_state}
+
+
 if __name__ == "__main__":
-    gw = BasicGridWorld()
+    gw = SensoryGridWorld()
     gw.display()
+
+    for i in range(0,100):
+
+        state = gw.get_current_state()
+        print(state['allocentric'].coordinates)
+        print(state['sensory'])
+        act = input('action: ')
+        gw.execute_action(act)
+
+
+
