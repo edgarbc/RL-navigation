@@ -9,54 +9,34 @@ class BasicQLearner(AbstractAgent):
         self.initial_q = initial_q
         self.Q = dict()
 
-    def set_task(self, task):
-        self.task = task
-        self.state = task.get_current_state()
-        available_actions = self.task.get_allowed_actions(self.state)
-        self.Q[self.state] = {act: self.initial_q for act in available_actions}
-
-
-    def set_policy(self, policy):
-        self.policy = policy
-
-    def expand_Qtable(self, state):
-        available_actions = self.task.get_allowed_actions(state)
+    def expand_Qtable(self, state, allowed_actions):
 
         # add an entry for this state if none exists
         if state not in self.Q:
-            self.Q[state] = {act: self.initial_q for act in available_actions}
+            self.Q[state] = {act: self.initial_q for act in allowed_actions}
 
         # update the Q table entry with any new actions (allows for tasks where actions vary by state, and over time)
         else:
             self.Q[state] = {act: self.Q[state][act] if act in self.Q[state] else self.initial_q
-                             for act in available_actions}
+                             for act in allowed_actions}
 
-
-    def step(self):
-        state = self.state
-        self.expand_Qtable(state)
+    def select_action(self, state, allowed_actions):
+        self.expand_Qtable(state, allowed_actions)
 
         # pick an action
-        act = self.policy.select_action(self.Q[state])
+        return self.policy.select_action(self.Q[state])
 
-        # execute action
-        reward = self.task.execute_action(act)
-
-        # observe new state
-        new_state = self.task.get_current_state()
-        self.expand_Qtable(new_state)
+    def update(self, state, action, reward, new_state, new_allowed_actions):
+        self.expand_Qtable(new_state, new_allowed_actions)
 
         # get max Q value of new state
         max_Q = max(self.Q[new_state].values())
 
         # update Q value
-        self.Q[state][act] =self.Q[state][act] + \
-                            self.alpha * (reward + self.gamma*max_Q - self.Q[state][act])
+        self.Q[state][action] = self.Q[state][action] + \
+                             self.alpha * (reward + self.gamma * max_Q - self.Q[state][action])
 
-        # update current state
-        self.state = new_state
 
-        return reward
 
 
 

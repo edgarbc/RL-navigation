@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+
 class NominalToBinary:
 
     def __init__(self, infrequent_threshold=1):
@@ -56,3 +57,30 @@ class NominalToBinary:
     def fit_transform(self, df):
         self.fit(df)
         return self.transform(df)
+
+class Episode:
+
+    def __init__(self, agent, task):
+        self.agent = agent
+        self.task = task
+
+    def run(self, num_steps):
+
+        current_state = self.task.get_current_state()
+        allowed_actions = self.task.get_allowed_actions(current_state)
+
+        reward_history = [0] * num_steps
+        for i in range(1, num_steps):
+            act = self.agent.select_action(state=current_state, allowed_actions=allowed_actions)
+            reward_history[i] = self.task.execute_action(act)
+            new_state = self.task.get_current_state()
+            allowed_actions = self.task.get_allowed_actions(new_state)
+            self.agent.update(state=current_state,
+                         action=act,
+                         reward=reward_history[i],
+                         new_state=new_state,
+                         new_allowed_actions=allowed_actions)
+            current_state = new_state
+            print('step {step}, cumulative reward = {rew}'.format(step=i, rew=sum(reward_history)))
+
+        return reward_history

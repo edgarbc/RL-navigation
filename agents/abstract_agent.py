@@ -2,17 +2,13 @@ from abc import ABC, abstractmethod
 
 class AbstractAgent(ABC):
 
-    def __init(self):
-        super().__init__()
-
-    @abstractmethod
-    def set_task(self, task):
-        pass
-
-    @abstractmethod
     def set_policy(self, policy):
+        self.policy = policy
+
+    @abstractmethod
+    def select_action(self, state, allowed_actions):
         pass
 
     @abstractmethod
-    def step(self):
+    def update(self, state, action, reward, new_state, new_allowed_actions):
         pass

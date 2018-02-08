@@ -90,14 +90,14 @@ class BasicGridWorld(AbstractTask):
                         continue
                     self.create_link(self.grid[i][j], act, neighbor)
 
-        self.current_state = self.grid[0][0]
+        self._current_state = self.grid[0][0]
 
     def get_current_state(self):
-        return self.current_state
+        return self._current_state
 
     def execute_action(self, action):
-        reward = self.current_state.rewards[action]
-        self.current_state = self.current_state.links[action]
+        reward = self._current_state.rewards[action]
+        self._current_state = self._current_state.links[action]
         return reward
 
     def get_allowed_actions(self, state):
@@ -112,22 +112,32 @@ class BasicGridWorld(AbstractTask):
                     rgb[i][j][:] = self.square_types[square_type]['color']
                 elif square_type in self.goal_types:
                     rgb[i][j][:] = self.goal_types[square_type]['color']
-        rgb[self.current_state.coordinates[0]][self.current_state.coordinates[1]][:] = 0
+        rgb[self._current_state.coordinates[0]][self._current_state.coordinates[1]][:] = 0
 
         pyplot.imshow(rgb/255)
 
-class SensoryGridWorld(BasicGridWorld):
+class SensoryGridWorld:
+
+    def __init__(self, basicGridWorld):
+        self.gridworld = basicGridWorld
+
+    def execute_action(self, action):
+        return self.gridworld.execute_action(action)
+
+    def get_allowed_actions(self, state):
+        return self.gridworld.get_allowed_actions(state)
+
     def get_current_state(self):
-        allo_state = self.current_state
+        allo_state = self.gridworld._current_state
         ego_state = {}
 
         i = allo_state.coordinates[0]
         j = allo_state.coordinates[1]
-        for act in self.actions:
-            new_i = i + self.actions[act][0]
-            new_j = j + self.actions[act][1]
-            if new_i >= 0 and new_i < self.size and new_j >= 0 and new_j < self.size:
-                ego_state[act] = self.grid[new_i][new_j].type_name
+        for act in self.gridworld.actions:
+            new_i = i + self.gridworld.actions[act][0]
+            new_j = j + self.gridworld.actions[act][1]
+            if new_i >= 0 and new_i < self.gridworld.size and new_j >= 0 and new_j < self.gridworld.size:
+                ego_state[act] = self.gridworld.grid[new_i][new_j].type_name
 
         return {'allocentric': allo_state, 'sensory': ego_state}
 
