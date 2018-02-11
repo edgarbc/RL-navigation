@@ -19,7 +19,9 @@ class AbstractTask(ABC):
 
     @abstractmethod
     def get_allowed_actions(self, state):
-        # this method should return the set of actions allowed from the given state
+        # this method should return a list of allowed actions from the given state
         pass
+
+
 
 
