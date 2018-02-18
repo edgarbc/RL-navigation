@@ -32,8 +32,6 @@ reward cells while avoiding bumping into walls and stepping into lava cells.
 In order to study how the egocentric and allocentric interact, we allow these two systems to exchange 
 information. On the one hand, 
 
-![Class diagram](https://github.com/edgarbc/janus/blob/commented-version/img/class_diagram.svg)
-
 
 ## Questions 
 
@@ -54,6 +52,10 @@ information. On the one hand,
     
 
 ## Code
+
+
+![Class diagram](https://github.com/edgarbc/janus/blob/commented-version/img/class_diagram.svg)
+
 
 - Agent class
 
