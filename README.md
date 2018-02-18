@@ -67,4 +67,8 @@ information. On the one hand,
 
 ```
 python demo.py
-```    
+```   
+
+### Results
+
+![Results plot](https://github.com/edgarbc/janus/blob/commented-version/img/result_normal_vs_ego_allo_01MAY2018.png)
