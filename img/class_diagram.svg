@@ -182,21 +182,21 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="74.71109"
-       y="184.70322"
+       x="111.07658"
+       y="178.6423"
        id="text4142"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4144"
-         x="74.71109"
-         y="184.70322">abstract_agent</tspan></text>
+         x="111.07658"
+         y="178.6423">abstract_agent</tspan></text>
     <rect
-       style="fill:#000000;fill-opacity:0;stroke:#00000a;stroke-width:0.5;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:0;stroke:#00000a;stroke-width:0.61570907;stroke-opacity:1"
        id="rect4148"
-       width="177.78685"
-       height="116.16754"
-       x="71.680626"
-       y="166.52048" />
+       width="244.34122"
+       height="128.17366"
+       x="77.799393"
+       y="156.47681" />
     <rect
        style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:12,1.5;stroke-dashoffset:0;stroke-opacity:0.73023251"
        id="rect4150"
@@ -212,7 +212,7 @@
        sodipodi:nodetypes="cc" />
     <g
        id="g10281"
-       transform="matrix(0.5,0,0,0.5,-71.761026,-101.06155)">
+       transform="matrix(0.5,0,0,0.5,-39.436145,-97.02094)">
       <text
          transform="scale(0.93162697,1.073391)"
          sodipodi:linespacing="125%"
@@ -236,7 +236,7 @@
     </g>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 44.406514,460.47488 c 240.416306,1.01015 241.426466,2.02031 241.426466,2.02031 l -1.01016,0"
+       d="m 76.731395,464.51549 c 240.416305,1.01015 241.426465,2.02031 241.426465,2.02031 l -1.01016,0"
        id="path10834"
        inkscape:connector-curvature="0" />
     <rect
@@ -449,6 +449,11 @@
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
+    <path
+       style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 78.453768,198.33338 c 240.416312,1.01015 241.426472,2.02031 241.426472,2.02031 l -1.01016,0"
+       id="path10834-5"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
