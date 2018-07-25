@@ -2,6 +2,8 @@ from tasks.abstract_task import AbstractTask
 import numpy as np
 from matplotlib import pyplot
 
+
+# EDGAR: Jul/2018 I think this class should disappear and be part of the arena that is part of the world.
 class BasicGridWorld(AbstractTask):
 
     actions = {'up': [0,-1],
