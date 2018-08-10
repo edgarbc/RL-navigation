@@ -4,6 +4,9 @@ from matplotlib import pyplot
 
 
 # EDGAR: Jul/2018 I think this class should disappear and be part of the arena that is part of the world.
+
+# Arena: this class provides the connection between the actions of the agent and their consequences
+
 class BasicGridWorld(AbstractTask):
 
     actions = {'up': [0,-1],

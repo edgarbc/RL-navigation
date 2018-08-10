@@ -24,9 +24,8 @@ class World:
         self.lava = self.createLava()
         # create the goal
         self.goal = self.createGoal()
-
         # create agents
-        self.create_agents()
+        self.agents = self.create_agents()
 
     def create_walls(self):
         # random creation of walls
@@ -41,6 +40,7 @@ class World:
         # creates all the agents in the world
         for i in range(0, self.num_agents):
             self.agents[i] = Agent()
+        return self.agents
 
     def display(self):
             self.arena.display()
