@@ -1,6 +1,7 @@
+from worlds import world
 
 
-class Agent:
+class Agent(world):
     # agent class
     def __init__(self):
         self.pos = [0,0]
@@ -8,7 +9,7 @@ class Agent:
         self.color = [0, 0, 1]
         self.reward = 0
         self.task = 0
-        self.world = self.parent  # not quite sure how this is done but the agent needs to have access to the worlds
+        self.world = world  # not quite sure how this is done but the agent needs to have access to the worlds
         # methods in order to access the objects
 
     def get_pos(self):
