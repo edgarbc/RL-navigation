@@ -39,7 +39,7 @@ class World:
     def create_agents(self):
         # creates all the agents in the world
         for i in range(0, self.num_agents):
-            self.agents[i] = Agent()
+            self.agents[i] = Agent(self)
         return self.agents
 
     def display(self):
