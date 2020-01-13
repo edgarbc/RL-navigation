@@ -4,7 +4,7 @@
 
 ## Basic idea
 The goal of this project is to investigate how spatial navigation works in rodents. Our approach is functionalist 
-in the sense that we believe that by building a system that performs the task, we might be in a better place to 
+in the sense that we believe that by building a system that performs a spatial navigation task, we might be in a better place to 
 understand what the mechanisms used in biology might look like or what are the restrictions that might be 
 involved. Therefore, we will model rodent spatial navigation at a high level of abstraction but keeping a certain 
 level of resemblence to what is known about the navigation system in rodents.
